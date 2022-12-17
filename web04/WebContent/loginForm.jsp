@@ -19,7 +19,9 @@
 <script type="text/javascript">
 
 	// 1. 변수 선언
-	var name; // 혹은 let
+	var name; // 혹은 let / const
+	// let 변수
+	// const 상수
 	
 	// 2. 변수 할당
 	name = "doo";
