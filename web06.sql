@@ -117,39 +117,6 @@ INSERT web06_user
 	'123465'
 );
 	
-USE web_project_01;
-
-CREATE TABLE users_info(
-user_no INT NOT NULL AUTO_INCREMENT,
-user_id VARCHAR(50),
-user_pwd VARCHAR(50),
-user_name varchar(50),
-PRIMARY KEY(user_no)
-);
 	
-DESC users_info;
-
--- 당근앱용 데이터 베이스
-CREATE DATABASE daanguen_mvc;
--- daanguen_mvc 데이터베이스 선택
-USE daanguen_mvcmembers;
-
--- 회원 데이블 만들기 
-CREATE TABLE members(
-userNo INT AUTO_INCREMENT NOT NULL COMMENT '회원식별번호',
-userName VARCHAR(100) NOT NULL COMMENT '회원이름',
-userEmail VARCHAR(255) NOT NULL COMMENT '회원이메일',
-userPwd VARCHAR(64) NOT NULL COMMENT '회원비밀번호',
-registDate DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '가입일호',
-CONSTRAINT member_pk PRIMARY KEY(userNo)
-);
-
-DESC members;
-
-SELECT * FROM members;
-
-SELECT userEmail from members where userEmail = 'doo@gmail.com';
-
-
-
-
+	
+	
