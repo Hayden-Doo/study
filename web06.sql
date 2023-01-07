@@ -106,8 +106,7 @@ CREATE TABLE web06_user ( -- excel sheet 명은 web06_user
 	insertDate DATETIME DEFAULT CURRENT_TIMESTAMP
 	);
 	
-	
-INSERT INTO web06_user
+INSERT web06_user
 (
 	user_no,
 	user_name,
@@ -118,57 +117,39 @@ INSERT INTO web06_user
 	'123465'
 );
 	
+USE web_project_01;
 
-SELECT * FROM web06_user;
-
-SELECT user_name,  user_pwd FROM web06_user;
+CREATE TABLE users_info(
+user_no INT NOT NULL AUTO_INCREMENT,
+user_id VARCHAR(50),
+user_pwd VARCHAR(50),
+user_name varchar(50),
+PRIMARY KEY(user_no)
+);
 	
-INSERT INTO web06_user
-(
-	user_no,
-	user_name,
-	user_pwd
-) VALUES (
-	2,
-	'doo2',
-	'123465'
+DESC users_info;
+
+-- 당근앱용 데이터 베이스
+CREATE DATABASE daanguen_mvc;
+-- daanguen_mvc 데이터베이스 선택
+USE daanguen_mvcmembers;
+
+-- 회원 데이블 만들기 
+CREATE TABLE members(
+userNo INT AUTO_INCREMENT NOT NULL COMMENT '회원식별번호',
+userName VARCHAR(100) NOT NULL COMMENT '회원이름',
+userEmail VARCHAR(255) NOT NULL COMMENT '회원이메일',
+userPwd VARCHAR(64) NOT NULL COMMENT '회원비밀번호',
+registDate DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '가입일호',
+CONSTRAINT member_pk PRIMARY KEY(userNo)
 );
 
-INSERT INTO web06_user
-(
-	user_no,
-	user_name,
-	user_pwd
-) VALUES (
-	3,
-	'doo3',
-	'123465'
-);
+DESC members;
 
--- 데이터 수정하기 
-UPDATE 테이블명 SET 대상컬럽=값(WHERE 컬럼명=값 혹은 !=<>>=...)
+SELECT * FROM members;
 
--- user_no가 1인 row에 user_name값을 killer로 바꿔놓겠다
-UPDATE web06_user SET user_name='killer' WHERE user_no=1;
+SELECT userEmail from members where userEmail = 'doo@gmail.com';
 
--- 수정
-UPDATE web06_user SET user_name='angle2' WHERE user_no=2;
 
--- 삭제
-DELETE FROM web06_user WHERE user_no=4;
-DELETE FROM web06_user;
--- user_no를 사용자 키로 변경(입력하지 않아도 자동으로 +1 해줄 수 있게 변경)
--- AUTO_INCREMENT
--- 테이블 수정은 ALTER 키워드 사용
-DESC web06_user; 
-SHOW TABLE web06_db;
-ALTER TABLE web06_user MODIFY user_no INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
-SELECT * FROM web06_user;
-INSERT INTO web06_user
-(
-	user_name,
-	user_pwd
-) VALUES (
-		'doo',
-	'123465'
-);
+
+

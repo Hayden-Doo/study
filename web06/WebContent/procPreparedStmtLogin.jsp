@@ -16,7 +16,7 @@
 	// 2. DB 연경
 	Connection conn = DriverManager.getConnection(
 			"jdbc:mysql://www.doohaedo.shop:3306/web06_db?user=root&password=123456"
-			);
+	);
 	// 3. SQL 문 조합 
 	String user_name = request.getParameter("user_name");
 	String user_pwd = request.getParameter("user_pwd");
